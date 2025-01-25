@@ -4,6 +4,7 @@ import "./index.css";
 
 
 import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
 function Index() {
 
@@ -11,6 +12,7 @@ function Index() {
     <>
       <Header />
       <Hero />
+      <Footer />
     </>
   );
 }

@@ -11,7 +11,7 @@ function Header() {
   return (
     <div className="header_container font-Roboto-300">
       {/* Announcement Bar on top of the page */}
-      <div className="h-12 bg-black w-full text-white justify-center items-center hidden lg:flex font-Roboto">
+      <div className="h-12 bg-black w-full text-white justify-center items-center hidden lg:flex font-Roboto font-thin">
         Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
       </div>
 
@@ -19,7 +19,7 @@ function Header() {
       <div className="h-24 w-full bg-white flex items-center justify-center border-solid border-b-gray-100 border-b-2">
         <div className="header w-[1070px] h-9 bg-white flex flex-wrap justify-between items-center mx-auto">
           {/* Logo */}
-          <span className="self-center text-xl font-semibold whitespace-nowrap font-Roboto">
+          <span className="self-center text-xl font-semibold whitespace-nowrap font-Roboto  ">
             Exclusive
           </span>
 
@@ -92,7 +92,7 @@ function Header() {
               <li>
                 <Link
                   to="/"
-                  className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 font-Roboto"
+                  className="  block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 font-Roboto"
                   aria-current="page"
                 >
                   Home
