@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Contact from "./Contact";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,7 +43,11 @@ function Header() {
             </div>
 
             {/* Icons */}
-            <img src="icons/favourite.png" className="w-6 h-6 mr-4" alt="favourites" />
+            <img
+              src="icons/favourite.png"
+              className="w-6 h-6 mr-4"
+              alt="favourites"
+            />
             <img src="icons/cart.png" className="w-6 h-6 mr-4" alt="cart" />
 
             {/* Mobile Menu Toggle Button */}
@@ -55,7 +60,7 @@ function Header() {
             >
               <span className="sr-only">Open main menu</span>
               <svg
-                className={`w-6 h-6 ${isMenuOpen ? 'hidden' : 'block'}`}
+                className={`w-6 h-6 ${isMenuOpen ? "hidden" : "block"}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +72,7 @@ function Header() {
                 ></path>
               </svg>
               <svg
-                className={`w-6 h-6 ${isMenuOpen ? 'block' : 'hidden'}`}
+                className={`w-6 h-6 ${isMenuOpen ? "block" : "hidden"}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +89,7 @@ function Header() {
           {/* Mobile Menu */}
           <div
             className={`${
-              isMenuOpen ? 'block' : 'hidden'
+              isMenuOpen ? "block" : "hidden"
             } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
@@ -100,7 +105,7 @@ function Header() {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  to="Contact"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 font-Roboto"
                 >
                   Contact
