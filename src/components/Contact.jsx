@@ -13,7 +13,7 @@ function Contact() {
       <Header />
       <div className="flex flex-col w-[100%] justify-round px-11 gap-8 mt-11 items-center text-gray-800 md:flex-row">
         <div className="max-w-[300px] h-[400px] border border-gray-100 shadow-xl sm:w-[90%] lg:ml-20">
-          <div className="font-bold text-[16px]call">
+          <div className="font-bold text-[16px]">
             <div className="flex gap-4 m-2">
               <div className="w-[30px] h-[30px] rounded-[50%] bg-red-700">
                 <FaPhoneAlt
