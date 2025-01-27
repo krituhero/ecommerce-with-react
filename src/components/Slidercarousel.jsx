@@ -4,9 +4,6 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 
-
-
-
 export default function Slidercarousel({ slides }) {
   let [current, setCurrent] = useState(0);
 
@@ -42,7 +39,7 @@ export default function Slidercarousel({ slides }) {
         </button>
       </div>
 
-      <div className="absolute bottom-0 py-4 flex justify-center gap-1 w-full">
+      <div className="absolute bottom-0 py-4 flex justify-center gap-1 w-full font-Roboto font-light">
         {slides.map((s, i) => {
           return (
             <div
