@@ -4,9 +4,6 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 
-
-
-
 export default function Slidercarousel({ slides }) {
   let [current, setCurrent] = useState(0);
 
