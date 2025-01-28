@@ -2,6 +2,7 @@ import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function Contact() {
   const handleSubmit = (e) => {
@@ -84,6 +85,7 @@ function Contact() {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
