@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Flashsales from "./components/Flashsales";
 import Categories from "./components/Categories";
+import Services from "./components/Services";
 
 function Index() {
   return (
@@ -13,6 +14,7 @@ function Index() {
       <Hero />
       <Flashsales />
       <Categories />
+      <Services />
       <Footer />
     </>
   );
