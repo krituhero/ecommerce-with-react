@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {
+      "id": "ca1",
+      "title": "Phones",
+      "icon": "/images/categories-img/phones.svg",
+      "alt": "phone"
+    },
+    {
+      "id": "ca2",
+      "title": "Computers",
+      "icon": "/images/categories-img/computers.svg",
+      "alt": "computers"
+    },
+    {
+      "id": "ca3",
+      "title": "SmartWatch",
+      "icon": "/images/categories-img/smartwatches.svg",
+      "alt": "smartwatches"
+    },
+    {
+      "id": "ca4",
+      "title": "Camera",
+      "icon": "/images/categories-img/camera.svg",
+      "alt": "camera"
+    },
+    {
+      "id": "ca5",
+      "title": "HeadPhones",
+      "icon": "/images/categories-img/headphones.svg",
+      "alt": "headphones"
+    },
+    {
+      "id": "ca6",
+      "title": "Games",
+      "icon": "/images/categories-img/gamepads.svg",
+      "alt": "gamepads"
+    }
+  ]
+}
