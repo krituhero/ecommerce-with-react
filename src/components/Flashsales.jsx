@@ -30,7 +30,7 @@ const Flashsales = () => {
     getProducts();
   }, []);
 
-  const scroll = (direction) => {
+  const scroll = (direction) => {1
     if (scrollRef.current) {
       const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
       const maxScroll = scrollWidth - clientWidth;
@@ -70,6 +70,10 @@ const Flashsales = () => {
           </button>
         </div>
       </div>
+
+
+
+
       <div
         ref={scrollRef}
         className="flex w-full overflow-x-auto scroll-smooth gap-6 scrollbar-hide"
@@ -125,10 +129,12 @@ const Flashsales = () => {
           </div>
         ))}
       </div>
+
+
       <div className="flex mt-8 items-center justify-center w-full">
         <Link
           className="px-4 py-2 rounded-md bg-red-600 text-white w-max hover:translate-x-2 hover:-translate-y-1 transition-all"
-          to="/all-products"
+          to="#"
         >
           View All Products
         </Link>

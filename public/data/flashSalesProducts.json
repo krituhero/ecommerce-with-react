@@ -54,17 +54,7 @@
       "alt": "jacket",
       "stars": 4.5,
       "times rated": 55
-    },
-    {
-      "id": "flsp6",
-      "name": "ASUS FHD Gaming Laptop",
-      "price": 700,
-      "discount-price": 570,
-      "discount-percentage": "20%",
-      "img": "/images/flash-sales-img/laptop.png",
-      "alt": "laptop",
-      "stars": 4.7,
-      "times rated": 325
     }
   ]
 }
+    
