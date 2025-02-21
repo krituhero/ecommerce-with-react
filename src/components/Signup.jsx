@@ -8,16 +8,16 @@ const Signup = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-row mt-20 mb-20 gap-20 justify-center shadow-md">
-        <div className="md:w-[40%] hidden sm:block  max-h-max">
+      <div className="flex flex-row mt-8 mb-20 gap-20 justify-center items-center ">
+        <div className="md:w-[50%] md:ml-[50px] lg:ml-[0px]  hidden sm:block  max-h-max">
           <img
             className="h-[500px] hidden sm:block"
             src="../public/images/signup.jpg"
             alt="image description"
           />
         </div>
-        <div className="">
-          <form className="">
+        <div className="flex flex-col md:w-[40%] md:mr-[150px] sm:justify-center">
+          <form>
             <h1 className="text-black text-4xl font-medium leading-[50px] ">
               Create an account
             </h1>
