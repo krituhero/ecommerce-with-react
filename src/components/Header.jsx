@@ -46,7 +46,12 @@ function Header() {
               className="w-6 h-6 mr-4"
               alt="favourites"
             />
-            <img src="icons/cart.png" className="w-6 h-6 mr-4" alt="cart" />
+            <Link to="/cart" className="relative">
+              <img src="icons/cart.png" className="w-6 h-6 mr-4" alt="cart" />
+              <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-2">
+                3
+              </span>
+            </Link>
 
             {/* Mobile Menu Toggle Button */}
             <button
