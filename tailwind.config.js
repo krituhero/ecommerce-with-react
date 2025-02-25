@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: { 
       fontFamily: {
-      Roboto: ['Roboto', 'sans-serif'], // Add Roboto to the font family
+      roboto: ['Roboto', 'sans-serif'], // Add Roboto to the font family
     },
     },
   },
