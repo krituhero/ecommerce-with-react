@@ -63,7 +63,7 @@ const Signup = () => {
                     className="text-black text-base font-normal leading-normal flex flex-row gap-4 px-4"
                     type="button"
                   >
-                    <img src="./public/icons/Icon-Google.png" />
+                    <img src="./icons/Icon-Google.png" />
                     Sign up with Google
                   </button>
                 </div>
