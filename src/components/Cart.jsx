@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const storedCart = localStorage.getItem('cart');
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch (err) {
+      console.error('Error parsing localStorage cart:', err);
+      return [];
+    }
+  });
 
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
-    setCartItems(storedCart ? JSON.parse(storedCart) : []);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+    try {
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+    } catch (err) {
+      console.error('Error saving to localStorage:', err);
+    }
   }, [cartItems]);
 
   const updateQuantity = (id, delta) => {
     setCartItems((prevItems) =>
-      prevItems
-        .map((item) =>
-          item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-        )
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
+      )
     );
   };
 
@@ -35,7 +42,7 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <div className="cart_container flex flex-col mb-[50px] max-w-full h-auto lg:mx-[100px] md:mx-[30px] sm:mx-[5px]">
+      <div className="cart_container flex flex-col mb-[50px] max-w-full h-auto lg:mx-[100px] md:mx-[30px] sm:mx-[16px]">
         <div className="cart_items mt-[30px]">
           <span className="text-gray-600">Home / Cart</span>
 
@@ -66,14 +73,14 @@ const Cart = () => {
                   <div className="w-1/6 text-center flex justify-center items-center gap-2">
                     <button
                       onClick={() => updateQuantity(item.id, -1)}
-                      className="px-2 bg-gray-200 rounded"
+                      className="px-2 bg-gray-200 rounded hover:bg-gray-300"
                     >
                       -
                     </button>
                     <span>{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.id, 1)}
-                      className="px-2 bg-gray-200 rounded"
+                      className="px-2 bg-gray-200 rounded hover:bg-gray-300"
                     >
                       +
                     </button>
@@ -93,9 +100,8 @@ const Cart = () => {
           )}
         </div>
 
-        {/* Checkout Section */}
         {cartItems.length > 0 && (
-          <div className="checkout flex flex-wrap justify-between h-auto max-w-full mx-[100px] gap-[300px] mt-[100px] mb-[80px]">
+          <div className="checkout flex flex-wrap justify-between h-auto max-w-full mx-4 sm:mx-6 lg:mx-[100px] gap-4 mt-10 mb-10">
             <div className="coupon flex items-start flex-1">
               <input
                 type="text"
@@ -107,7 +113,7 @@ const Cart = () => {
               </button>
             </div>
 
-            <div className="flex flex-col border border-black p-4 rounded-md flex-1 max-w-full w-full bg-gray-50 px-4">
+            <div className="flex flex-col border border-black p-4 rounded-md flex-1 max-w-full w-full bg-gray-50">
               <span className="font-semibold">Cart Total</span>
               <div className="flex justify-between my-2">
                 <span>Subtotal :</span>
@@ -123,9 +129,12 @@ const Cart = () => {
                 <span>Total:</span>
                 <span>${subtotal.toFixed(2)}</span>
               </div>
-              <button className="text-white bg-red-500 mt-4 mx-auto md:mx-8 lg:mx-16 py-2 px-4 ml-2 text-md rounded-md">
+              <Link
+                to="/checkout"
+                className="text-white bg-red-500 mt-4 mx-auto py-2 px-4 text-md rounded-md hover:bg-black transition-all"
+              >
                 Proceed to Checkout
-              </button>
+              </Link>
             </div>
           </div>
         )}

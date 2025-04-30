@@ -8,16 +8,29 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState(() => {
-    const stored = localStorage.getItem('cart');
-    return stored ? JSON.parse(stored) : [];
+    try {
+      const stored = localStorage.getItem('cart');
+      return stored ? JSON.parse(stored) : [];
+    } catch (err) {
+      console.error('Error parsing localStorage cart:', err);
+      return [];
+    }
   });
+  const [quantities, setQuantities] = useState({}); // Track quantity for each product
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await fetch('/data/flashSalesProducts.json');
+        if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         setProducts(data.flashSalesProducts);
+        // Initialize quantities for each product to 1
+        const initialQuantities = data.flashSalesProducts.reduce((acc, product) => {
+          acc[product.id] = 1;
+          return acc;
+        }, {});
+        setQuantities(initialQuantities);
       } catch (err) {
         console.error('Error loading products:', err);
       } finally {
@@ -28,24 +41,38 @@ const Product = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart)); // Sync cart with localStorage
+    try {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } catch (err) {
+      console.error('Error saving to localStorage:', err);
+    }
   }, [cart]);
 
+  const updateQuantity = (productId, delta) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [productId]: Math.max(1, (prev[productId] || 1) + delta),
+    }));
+  };
+
   const addToCart = (product) => {
+    const quantityToAdd = quantities[product.id] || 1;
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
-        const updatedCart = prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantityToAdd }
+            : item
         );
-        localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update localStorage when cart changes
-        return updatedCart;
-      } else {
-        const newCart = [...prevCart, { ...product, quantity: 1 }];
-        localStorage.setItem('cart', JSON.stringify(newCart)); // Update localStorage when cart changes
-        return newCart;
       }
+      return [...prevCart, { ...product, quantity: quantityToAdd }];
     });
+    // Reset quantity to 1 after adding to cart
+    setQuantities((prev) => ({
+      ...prev,
+      [product.id]: 1,
+    }));
   };
 
   if (loading) {
@@ -96,12 +123,27 @@ const Product = () => {
                   <span>({product['times rated']})</span>
                 </div>
               </Link>
-              <button
-                onClick={() => addToCart(product)}
-                className="mt-4 w-full bg-black text-white py-2 rounded-md hover:bg-red-600 transition-all"
-              >
-                Add to Cart
-              </button>
+              <div className="flex items-center gap-2 mt-4">
+                <button
+                  onClick={() => updateQuantity(product.id, -1)}
+                  className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                >
+                  -
+                </button>
+                <span className="text-lg">{quantities[product.id] || 1}</span>
+                <button
+                  onClick={() => updateQuantity(product.id, 1)}
+                  className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                >
+                  +
+                </button>
+                <button
+                  onClick={() => addToCart(product)}
+                  className="flex-1 bg-black text-white py-2 rounded-md hover:bg-red-600 transition-all"
+                >
+                  Add to Cart
+                </button>
+              </div>
               <Link
                 to="/cart"
                 className="mt-2 block text-center w-full bg-red-500 text-white py-2 rounded-md hover:bg-black transition-all"

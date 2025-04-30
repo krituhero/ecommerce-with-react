@@ -7,6 +7,8 @@ import Login from "./components/Login.jsx";
 import Cart from "./components/Cart.jsx";
 import Error from "./components/Error.jsx";
 
+import Checkout from "./components/Checkout.jsx";
+
 import Product from "./components/Product.jsx";
 
 import ProductDetails from "./components/ProductDetails.jsx";
@@ -24,6 +26,7 @@ function App() {
         <Route path="/Allproducts" element={<Product />} />
 
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/checkout" element={<Checkout />} />
 
 
 
