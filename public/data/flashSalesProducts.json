@@ -54,7 +54,39 @@
       "alt": "jacket",
       "stars": 4.5,
       "times rated": 55
+    },
+    {
+      "id": "flsp6",
+      "name": "Laptop",
+      "price": 90,
+      "discount-price": 70,
+      "discount-percentage": "22%",
+      "img": "/images/flash-sales-img/laptop.png",
+      "alt": "laptop",
+      "stars": 4.6,
+      "times rated": 64
+    },
+    {
+      "id": "flsp7",
+      "name": "RGB Mechanical Keyboard",
+      "price": 140,
+      "discount-price": 110,
+      "discount-percentage": "30%",
+      "img": "/images/flash-sales-img/mechanical-keyboard.webp",
+      "alt": "rgb keyboard",
+      "stars": 4.9,
+      "times rated": 120
+    },
+    {
+      "id": "flsp8",
+      "name": "Noise Cancelling Headphones",
+      "price": 300,
+      "discount-price": 240,
+      "discount-percentage": "25%",
+      "img": "/images/flash-sales-img/headphone.avif",
+      "alt": "headphones",
+      "stars": 5,
+      "times rated": 200
     }
   ]
 }
-    

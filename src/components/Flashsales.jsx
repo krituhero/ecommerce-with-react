@@ -12,8 +12,8 @@ const Flashsales = () => {
   async function getProducts() {
     try {
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      const response = await fetch("../data/flashSalesProducts.json");
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const response = await fetch("/data/flashSalesProducts.json");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -30,15 +30,17 @@ const Flashsales = () => {
     getProducts();
   }, []);
 
-  const scroll = (direction) => {1
+  const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
       const maxScroll = scrollWidth - clientWidth;
-      const scrollAmount = clientWidth / 2;
+      const scrollAmount = clientWidth / 1.5;
+
       let newScrollPosition =
         direction === "left"
           ? scrollLeft - scrollAmount
           : scrollLeft + scrollAmount;
+
       newScrollPosition = Math.max(0, Math.min(maxScroll, newScrollPosition));
       scrollRef.current.scrollTo({
         left: newScrollPosition,
@@ -49,12 +51,10 @@ const Flashsales = () => {
 
   return (
     <section className="w-full px-[7%] my-14 max-sm:mt-8">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="block w-[1.3rem] h-[3rem] rounded-md bg-accent"></span>
-        <h5 className="text-base text-action font-bold">Today’s</h5>
-      </div>
       <div className="flex w-full items-center gap-6 mb-8 justify-between relative">
-        <h2 className="text-3xl font-bold max-sm:text-xl">Flash Sales</h2>
+        <h2 className="text-3xl font-bold max-sm:text-xl text-red-600">
+          Today’s Flash Sales
+        </h2>
         <div className="flex items-center gap-4">
           <button
             className="bg-secondary w-8 h-8 rounded-full transition-all hover:bg-action hover:text-primary flex items-center justify-center"
@@ -71,16 +71,13 @@ const Flashsales = () => {
         </div>
       </div>
 
-
-
-
       <div
         ref={scrollRef}
         className="flex w-full overflow-x-auto scroll-smooth gap-6 scrollbar-hide"
       >
-        {products.slice(0, 5).map((product) => (
+        {products.map((product) => (
           <div
-            className="flex flex-col gap-1 w-[20rem] max-sm:w-[12rem]"
+            className="flex flex-col gap-1 w-[20rem] max-sm:w-[12rem] flex-shrink-0"
             key={product.id}
           >
             <div className="group flex flex-col items-center justify-center w-full h-[17rem] max-sm:h-[14rem] rounded-md p-4 bg-secondary relative transition-all overflow-hidden">
@@ -89,7 +86,7 @@ const Flashsales = () => {
                 src={product.img}
                 alt={product.alt}
               />
-              <span className="absolute w-max h-max px-2 rounded-md bg-accent left-3 top-2 text-sm text-primary">
+              <span className="absolute px-2 rounded-md bg-accent left-3 top-2 text-sm text-primary">
                 {product["discount-percentage"]}
               </span>
 
@@ -98,7 +95,7 @@ const Flashsales = () => {
                   <HiOutlineHeart className="w-full h-full" />
                 </button>
                 <Link
-                  to=""
+                  to="#"
                   className="hover:bg-red-600 hover:text-white bg-white text-black w-6 h-6 rounded-full flex items-center justify-center p-[1px]"
                 >
                   <HiOutlineEye className="w-full h-full" />
@@ -129,7 +126,6 @@ const Flashsales = () => {
           </div>
         ))}
       </div>
-
 
       <div className="flex mt-8 items-center justify-center w-full">
         <Link

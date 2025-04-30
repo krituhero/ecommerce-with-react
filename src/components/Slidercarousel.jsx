@@ -18,15 +18,22 @@ export default function Slidercarousel({ slides }) {
   };
 
   return (
-    <div className="overflow-hidden relative mt-6">
+    <div className="overflow-hidden relative mt-6 h-[350px]">
       <div
-        className={`flex transition ease-out duration-40`}
+        className={`flex transition ease-out duration-40 h-full`}
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
       >
-        {slides.map((s) => {
-          return <img src={s} />;
+        {slides.map((s, i) => {
+          return (
+            <img
+              key={i}
+              src={s}
+              className="w-full h-full object-cover flex-shrink-0"
+              alt={`slide-${i}`}
+            />
+          );
         })}
       </div>
 
@@ -47,7 +54,7 @@ export default function Slidercarousel({ slides }) {
                 setCurrent(i);
               }}
               key={"circle" + i}
-              className={`rounded-full w-3 h-3 cursor-pointer  ${
+              className={`rounded-full w-3 h-3 cursor-pointer ${
                 i == current ? "bg-white" : "bg-gray-500"
               }`}
             ></div>

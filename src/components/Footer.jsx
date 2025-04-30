@@ -63,12 +63,7 @@ function Footer() {
           >
             Cart
           </Link>
-          <Link
-            to="/"
-            className="w-[110px] h-[24px] font-Roboto font-thin text-white mt-[10px] cursor-pointer block"
-          >
-            Wishlist
-          </Link>
+          
           <Link
             to="/"
             className="w-[110px] h-[24px] font-Roboto font-thin text-white mt-[10px] cursor-pointer block"

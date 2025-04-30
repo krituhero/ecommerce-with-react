@@ -56,18 +56,16 @@ const Signup = () => {
             </div>
 
             <div className="flex flex-col pt-4 pb-10 ">
-              <div className="w-96 max-sm:w-full h-14 px-20 py-4 max-sm:p-0 max-sm:items-center max-sm:justify-center rounded border border-black border-opacity-40 flex-col justify-start items-start gap-2.5 inline-flex transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
-                <div className="justify-start items-start  ">
-                  <div className="w-6 relative" />
-                  <button
-                    className="text-black text-base font-normal leading-normal flex flex-row gap-4 px-4"
-                    type="button"
-                  >
-                    <img src="./icons/Icon-Google.png" />
-                    Sign up with Google
-                  </button>
-                </div>
+              <div className="w-96 max-sm:w-full h-14 px-4 max-sm:px-0 flex items-center justify-center rounded border border-black border-opacity-40 transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400">
+                <button
+                  className="text-black text-base font-normal leading-normal flex flex-row items-center gap-4"
+                  type="button"
+                >
+                  <img src="./icons/Icon-Google.png" className="w-5 h-5" alt="Google Icon" />
+                  Sign up with Google
+                </button>
               </div>
+
             </div>
             <div className="flex flex-row gap-4 justify-center mb-0">
               <p className="opacity-70 mb-10  text-black text-base font-normal leading-normal">
