@@ -57,13 +57,13 @@ const Flashsales = () => {
         </h2>
         <div className="flex items-center gap-4">
           <button
-            className="bg-secondary w-8 h-8 rounded-full transition-all hover:bg-action hover:text-primary flex items-center justify-center"
+            className="bg-secondary w-8 h-8 rounded-full hover:bg-action hover:text-primary flex items-center justify-center"
             onClick={() => scroll("left")}
           >
             <HiArrowLeft />
           </button>
           <button
-            className="bg-secondary w-8 h-8 rounded-full transition-all hover:bg-action hover:text-primary flex items-center justify-center"
+            className="bg-secondary w-8 h-8 rounded-full hover:bg-action hover:text-primary flex items-center justify-center"
             onClick={() => scroll("right")}
           >
             <HiArrowRight />
@@ -80,7 +80,7 @@ const Flashsales = () => {
             className="flex flex-col gap-1 w-[20rem] max-sm:w-[12rem] flex-shrink-0"
             key={product.id}
           >
-            <div className="group flex flex-col items-center justify-center w-full h-[17rem] max-sm:h-[14rem] rounded-md p-4 bg-secondary relative transition-all overflow-hidden">
+            <div className="group flex flex-col items-center justify-center w-full h-[17rem] max-sm:h-[14rem] rounded-md p-4 bg-secondary relative overflow-hidden">
               <img
                 className="hover:scale-[1.2] transition-all"
                 src={product.img}
@@ -95,7 +95,7 @@ const Flashsales = () => {
                   <HiOutlineHeart className="w-full h-full" />
                 </button>
                 <Link
-                  to="#"
+                  to={`/product/${product.id}`}
                   className="hover:bg-red-600 hover:text-white bg-white text-black w-6 h-6 rounded-full flex items-center justify-center p-[1px]"
                 >
                   <HiOutlineEye className="w-full h-full" />
@@ -125,15 +125,6 @@ const Flashsales = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="flex mt-8 items-center justify-center w-full">
-        <Link
-          className="px-4 py-2 rounded-md bg-red-600 text-white w-max hover:translate-x-2 hover:-translate-y-1 transition-all"
-          to="#"
-        >
-          View All Products
-        </Link>
       </div>
     </section>
   );

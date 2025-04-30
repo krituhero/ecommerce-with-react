@@ -7,6 +7,8 @@ import Login from "./components/Login.jsx";
 import Cart from "./components/Cart.jsx";
 import Error from "./components/Error.jsx";
 
+import ProductDetails from "./components/ProductDetails.jsx";
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +18,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/product/:id" element={<ProductDetails />} />
+
 
 
         <Route path="/cart" element={<Cart />} />
