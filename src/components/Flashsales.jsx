@@ -126,6 +126,16 @@ const Flashsales = () => {
           </div>
         ))}
       </div>
+
+      {/* Button to Redirect to All Products */}
+      <div className="flex justify-center mt-6">
+        <Link
+          to="/allproducts"
+          className="text-white bg-red-500 py-2 px-4 rounded-md hover:bg-black transition-all"
+        >
+          View All Products
+        </Link>
+      </div>
     </section>
   );
 };

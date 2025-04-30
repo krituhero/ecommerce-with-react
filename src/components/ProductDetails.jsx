@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -53,6 +53,17 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+
+      {/* Button to Redirect to All Products Page */}
+      <div className="flex justify-center mt-6">
+        <Link
+          to="/allproducts"
+          className="text-white bg-red-500 py-2 px-4 rounded-md hover:bg-black transition-all mb-12"
+        >
+          View All Products
+        </Link>
+      </div>
+
       <Footer />
     </>
   );
