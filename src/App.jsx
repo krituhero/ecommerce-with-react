@@ -6,7 +6,7 @@ import Signup from "./components/Signup.jsx";
 import Login from "./components/Login.jsx";
 import Cart from "./components/Cart.jsx";
 import Error from "./components/Error.jsx";
-
+import Fav from "./components/Fav.jsx";
 import Checkout from "./components/Checkout.jsx";
 
 import Product from "./components/Product.jsx";
@@ -27,6 +27,8 @@ function App() {
 
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/fav" element={<Fav />} />
+
 
 
 

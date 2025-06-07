@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -41,11 +41,11 @@ function Header() {
             </div>
 
             {/* Icons */}
-            <img
+            <Link to="/fav"><img
               src="icons/favourite.png"
               className="w-6 h-6 mr-4"
               alt="favourites"
-            />
+            /></Link>
             <Link to="/cart" className="relative">
               <img src="icons/cart.png" className="w-6 h-6 mr-4" alt="cart" />
               <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-2">
@@ -91,44 +91,66 @@ function Header() {
 
           {/* Mobile Menu */}
           <div
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            className={`${isMenuOpen ? "block" : "hidden"
+              } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
-                <Link
+                <NavLink
                   to="/"
-                  className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 font-Roboto"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 rounded font-Roboto ${isActive
+                      ? 'text-gray-500'
+                      : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent'
+                    }`
+                  }
                   aria-current="page"
                 >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/Contact"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 font-Roboto"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 rounded font-Roboto ${isActive
+                      ? 'text-gray-500'
+                      : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent'
+                    }`
+                  }
+                  aria-current="page"
                 >
                   Contact
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/About"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 font-Roboto"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 rounded font-Roboto ${isActive
+                      ? 'text-gray-500'
+                      : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent'
+                    }`
+                  }
+                  aria-current="page"
                 >
                   About
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/signup"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 font-Roboto"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 rounded font-Roboto ${isActive
+                      ? 'text-gray-500'
+                      : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent'
+                    }`
+                  }
+                  aria-current="page"
                 >
                   Signup
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
